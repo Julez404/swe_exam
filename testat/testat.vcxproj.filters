@@ -33,6 +33,12 @@
     <ClInclude Include="Resource.h">
       <Filter>Headerdateien</Filter>
     </ClInclude>
+    <ClInclude Include="Punkt.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="Strecke.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="testat.cpp">
@@ -42,6 +48,12 @@
       <Filter>Quelldateien</Filter>
     </ClCompile>
     <ClCompile Include="stdafx.cpp">
+      <Filter>Quelldateien</Filter>
+    </ClCompile>
+    <ClCompile Include="Punkt.cpp">
+      <Filter>Quelldateien</Filter>
+    </ClCompile>
+    <ClCompile Include="Strecke.cpp">
       <Filter>Quelldateien</Filter>
     </ClCompile>
   </ItemGroup>
