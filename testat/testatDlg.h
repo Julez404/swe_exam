@@ -4,6 +4,8 @@
 
 #pragma once
 
+#include "Punkt.h"
+#include "Strecke.h"
 
 // CtestatDlg-Dialogfeld
 class CtestatDlg : public CDialogEx
@@ -30,5 +32,11 @@ protected:
 	afx_msg void OnSysCommand(UINT nID, LPARAM lParam);
 	afx_msg void OnPaint();
 	afx_msg HCURSOR OnQueryDragIcon();
+	void OnLButtonDown(UINT nFlags, CPoint point);
 	DECLARE_MESSAGE_MAP()
+	double mLaenge;
+public:
+
+protected:
+	CStrecke strecke;
 };

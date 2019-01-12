@@ -19,17 +19,18 @@ class CAboutDlg : public CDialogEx
 public:
 	CAboutDlg();
 
-// Dialogfelddaten
+	// Dialogfelddaten
 #ifdef AFX_DESIGN_TIME
 	enum { IDD = IDD_ABOUTBOX };
 #endif
 
-	protected:
+protected:
 	virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV-Unterstützung
 
 // Implementierung
 protected:
 	DECLARE_MESSAGE_MAP()
+
 };
 
 CAboutDlg::CAboutDlg() : CDialogEx(IDD_ABOUTBOX)
@@ -42,6 +43,7 @@ void CAboutDlg::DoDataExchange(CDataExchange* pDX)
 }
 
 BEGIN_MESSAGE_MAP(CAboutDlg, CDialogEx)
+	ON_WM_LBUTTONDOWN()
 END_MESSAGE_MAP()
 
 
@@ -51,6 +53,7 @@ END_MESSAGE_MAP()
 
 CtestatDlg::CtestatDlg(CWnd* pParent /*=NULL*/)
 	: CDialogEx(IDD_TESTAT_DIALOG, pParent)
+	, mLaenge(0)
 {
 	m_hIcon = AfxGetApp()->LoadIcon(IDR_MAINFRAME);
 }
@@ -58,12 +61,14 @@ CtestatDlg::CtestatDlg(CWnd* pParent /*=NULL*/)
 void CtestatDlg::DoDataExchange(CDataExchange* pDX)
 {
 	CDialogEx::DoDataExchange(pDX);
+	DDX_Text(pDX, IDC_EDIT1, mLaenge);
 }
 
 BEGIN_MESSAGE_MAP(CtestatDlg, CDialogEx)
 	ON_WM_SYSCOMMAND()
 	ON_WM_PAINT()
 	ON_WM_QUERYDRAGICON()
+	ON_WM_LBUTTONDOWN()
 END_MESSAGE_MAP()
 
 
@@ -152,3 +157,17 @@ HCURSOR CtestatDlg::OnQueryDragIcon()
 	return static_cast<HCURSOR>(m_hIcon);
 }
 
+
+void CtestatDlg::OnLButtonDown(UINT nFlags, CPoint point)
+{
+	if (nFlags & MK_LBUTTON)
+	{
+		strecke.add(CPunkt(point.x, point.y));
+		CClientDC cd(this);
+		CDC* cdc_ptr = &cd;
+		strecke.draw(&cd);
+		mLaenge = strecke.getLength();
+		UpdateData(false);
+	}
+	CDialogEx::OnLButtonDown(nFlags, point);
+}

@@ -5,6 +5,8 @@
 
 #pragma once
 
+#include <math.h>
+
 #ifndef VC_EXTRALEAN
 #define VC_EXTRALEAN            // Selten verwendete Komponenten aus Windows-Headern ausschlieﬂen
 #endif
