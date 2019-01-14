@@ -64,9 +64,9 @@ void CStrecke::add(CPunkt _punkt)
 }
 
 
-void CStrecke::draw(CDC* _cdc)
+void CStrecke::draw(CDC* _cdc) const
 {
-	CPen schwarz();
+	CPen schwarz;
 	_cdc->MoveTo(0, 0);
 	_cdc->SetDCPenColor(RGB(255, 255, 255));
 	CPunkt* lookup_ptr = start;

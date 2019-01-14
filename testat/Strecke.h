@@ -16,6 +16,6 @@ public:
 	void setStart(CPunkt* _start);
 	double getLength(void) const;
 	void add(CPunkt _punkt);
-	void draw(CDC* _cdc);
+	void draw(CDC* _cdc) const;
 };
 
